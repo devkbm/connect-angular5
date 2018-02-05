@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="authorities">권한</label>
+  <div class="select multiple">
+      <select id="authorities" multiple>
+        <option *ngFor="let auth of authList">
+            {{auth.authority}}
+        </option>          
+      </select>
+  </div>
+</div>

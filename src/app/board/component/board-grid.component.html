@@ -1,0 +1,36 @@
+<clr-datagrid [(clrDgSingleSelected)]="selectedBoard" [clDgRowSelection]="true" (clrDgSingleSelectedChange)="selectedChanged($event)">
+    <clr-dg-action-bar>
+        Selected Board: <span class="username" *ngIf="selectedBoard">{{selectedBoard.boardNm}}</span>
+        <button class="btn btn-sm btn-secondary" (click)="getBoardList()">조회</button>
+      <!--<div class="btn-group">
+          <button type="button" class="btn btn-sm btn-secondary" (click)="onAdd()"><clr-icon shape="plus"></clr-icon> Addto group</button>
+          <button type="button" class="btn btn-sm btn-secondary" (click)="onDelete()" ><clr-icon shape="close"></clr-icon> Delete</button>
+          <button type="button" class="btn btn-sm btn-secondary" (click)="onEdit()" *ngIf="selected.length == 1"><clr-icon shape="pencil"></clr-icon> Edit</button>
+      </div>-->
+    </clr-dg-action-bar>
+  
+    <clr-dg-column [clrDgField]="'pkBoard'">
+        <ng-container *clrDgHideableColumn="{hidden:true}">
+            게시판 키
+        </ng-container>
+    </clr-dg-column>
+    <clr-dg-column [clrDgField]="'boardName'">게시판명</clr-dg-column>
+    <clr-dg-column [clrDgField]="'boardType'"     [style.width.px]="100">타입</clr-dg-column>
+    <clr-dg-column [clrDgField]="'fromDate'"      [style.width.px]="130">시작일자</clr-dg-column>
+    <clr-dg-column [clrDgField]="'toDate'"        [style.width.px]="130">종료일자</clr-dg-column>
+    
+    <clr-dg-row *clrDgItems="let board of boardList" [clrDgItem]="board">
+        <clr-dg-cell>{{board.pkBoard}}</clr-dg-cell>
+        <clr-dg-cell>{{board.boardName}}</clr-dg-cell>
+        <clr-dg-cell>{{board.boardType}}</clr-dg-cell>
+        <clr-dg-cell>{{board.fromDate | date}}</clr-dg-cell>
+        <clr-dg-cell>{{board.toDate | date}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} boards
+        </clr-dg-pagination>              
+    </clr-dg-footer>      
+</clr-datagrid>
