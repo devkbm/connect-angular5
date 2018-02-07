@@ -117,4 +117,11 @@ export class UserFormComponent implements OnInit {
     this.passwordConfirm === '' ? this.isPasswordConfirmEmpty = true : this.isPasswordConfirmEmpty = false;
   }
 
+  private onClick(name) {
+    console.log(name);
+  }
+
+  onValueChange(event) {
+    console.log(event);
+  }
 }

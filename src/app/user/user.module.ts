@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
+import { CommonFormsModule } from '../common-forms/common-forms.module';
 
 import { LoginComponent } from './login/login.component';
 import { UserFormComponent } from './component/user-form.component';
@@ -15,11 +16,13 @@ import { AuthorityGridComponent } from './component/authority-grid.component';
 import { AuthorityFormComponent } from './component/authority-form.component';
 import { AuthoritySelectboxesComponent } from './component/authority-selectboxes.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ClarityModule
+    ClarityModule,
+    CommonFormsModule
   ],
   declarations: [
     LoginComponent,

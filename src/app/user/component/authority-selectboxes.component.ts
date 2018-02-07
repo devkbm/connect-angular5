@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Authority } from '../model/authority-info';
 import { UserService } from '../service/user.service';
 import { ResponseList } from '../../common-layout/model/response-list';
@@ -11,11 +11,26 @@ import { ResponseList } from '../../common-layout/model/response-list';
 export class AuthoritySelectboxesComponent implements OnInit {
 
   private authList: Authority[];
+    
+  authorities;
   
+  @Output()
+  authChanged = new EventEmitter();
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.getAuthorityList();
+  }
+
+  @Input()
+  get auth() {
+    return this.authorities;
+  }
+
+  set auth(val) {
+    this.authorities = val;
+    this.authChanged.emit(this.authorities);
   }
 
   private getAuthorityList() {
@@ -35,4 +50,6 @@ export class AuthoritySelectboxesComponent implements OnInit {
         }
       );
   }
+
+  
 }
