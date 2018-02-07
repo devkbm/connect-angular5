@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, Output, EventEmitter, HostBinding } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS,  ControlValueAccessor, AbstractControl, Validator } from '@angular/forms';
 
 const noop = () => {
@@ -20,9 +20,10 @@ const noop = () => {
   }]
 })
 export class CfInputComponent implements OnInit, ControlValueAccessor, Validator {  
-  
+
   private innerValue: any = '';
-  
+
+  @Input() uid: String;
   @Input() isRequired: boolean = false;
   @Input() inputType: String = 'text';
   @Input() placeholderText: String = 'PLACEHOLDER';
@@ -82,11 +83,7 @@ export class CfInputComponent implements OnInit, ControlValueAccessor, Validator
     //throw new Error("Method not implemented.");
   }
 
-  onClick(model) {
-    console.log(model);    
-  }
-
-  onChange(event: any)  {    
+  onChange(event: any)  {
     this.valueChanged.emit(event.target.value);
   }
 

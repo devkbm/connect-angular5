@@ -4,32 +4,35 @@
         <label>사용자 신규 등록</label>      
         <div class="form-group" >
             <label for="user_id" class="required">아이디</label>
-            <label for="user_id" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md" [class.invalid]="m_userId.invalid && (m_userId.dirty || m_userId.touched)">                
-                <input  [(ngModel)]="user.userId" [ngModelOptions]="{standalone: true}"
-                    #m_userId="ngModel"
-                    id="user_id"                    
-                    type="text"                     
-                    placeholder="아이디를 입력해주세요." 
-                    size="20"                    
-                    required 
-                    >
-                <span class="tooltip-content">
-                    필수 정보입니다.
-                </span>
-            </label>
+            <cf-input   [(ngModel)]="user.userId" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'아이디를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>                        
             <button class="btn btn-primary" (click)="checkUser()">중복확인</button>
         </div>
-        <cf-input   [(ngModel)]="user.name" 
-                    [ngModelOptions]="{standalone: true}" 
-                    [placeholderText]="'이름을 입력해주세요.'" 
-                    [tooltipText]="'필수 정보입니다.'"
-                    (valueChanged)="onValueChange($event)"
-                    [isRequired]=true>이름</cf-input>
-        <cf-input-password   [(ngModel)]="user.password" 
-                    [ngModelOptions]="{standalone: true}"                  
-                    [placeholderText]="'비밀번호를 입력해주세요.'" 
-                    [tooltipText]="'필수 정보입니다.'"
-                    [isRequired]=true>비밀번호</cf-input-password>
+        <div class="form-group" >
+            <label for="username"class="required">이름</label>
+            <cf-input   [(ngModel)]="user.name" [uid]="username"
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'이름을 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>
+        <div class="form-group" >
+            <label class="required">비밀번호</label>
+            <cf-input-password 
+                        [(ngModel)]="user.password" 
+                        [ngModelOptions]="{standalone: true}"                  
+                        [placeholderText]="'비밀번호를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        [isRequired]=true>
+            </cf-input-password>
+        </div>
         <!--<div class="form-group">
             <label for="name" class="required">이름</label>
             <label for="name" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md" [class.invalid]="m_name.invalid && (m_name.dirty || m_name.touched)">
@@ -85,9 +88,6 @@
                 >                
             </clr-checkbox>            
         </div>-->
-        
-        
-        <cf-input [(ngModel)]="user.userId" [ngModelOptions]="{standalone: true}" [placeholderText]="'이름을 입력해주세요.'" [tooltipText]="'툴팁'" [isRequired]=false>아이디</cf-input>
         
         <button class="btn btn-primary" (click)="getUser()">조회</button>
         <button type="submit" class="btn btn-primary" (click)="registerUser()">등록</button>

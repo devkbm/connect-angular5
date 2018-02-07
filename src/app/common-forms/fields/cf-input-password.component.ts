@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, Output, forwardRef, EventEmitter } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS,  ControlValueAccessor, AbstractControl, Validator } from '@angular/forms';
 
 const noop = () => {
@@ -12,21 +12,18 @@ const noop = () => {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => CfInputPasswordComponent),
     multi: true
-  },
-  {
-    provide: NG_VALIDATORS,
-    useExisting: forwardRef(() => CfInputPasswordComponent),
-    multi: true
   }]
 })
 export class CfInputPasswordComponent implements OnInit {
-  
+
   private innerValue: any = '';
-  
+
   @Input() isRequired: boolean = false;
   @Input() inputType: String = 'text';
   @Input() placeholderText: String = 'PLACEHOLDER';
   @Input() tooltipText: String;
+
+  @Output() valueChanged: EventEmitter<string> = new EventEmitter();
 
   //Placeholders for the callbacks which are later provided
   //by the Control Value Accessor
@@ -72,16 +69,8 @@ export class CfInputPasswordComponent implements OnInit {
     //throw new Error("Method not implemented.");
   }
 
-  validate(c: AbstractControl): {[key: string]: any} {
-    return {"required": true};
-  }
-
-  registerOnValidatorChange?(fn: () => void): void {
-    //throw new Error("Method not implemented.");
-  }
-
-  onClick(model) {
-    console.log(model);
+  onChange(event: any)  {
+    this.valueChanged.emit(event.target.value);
   }
 
 }
