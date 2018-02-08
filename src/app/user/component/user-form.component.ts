@@ -15,7 +15,7 @@ import { AuthoritySelectboxesComponent } from './authority-selectboxes.component
 })
 export class UserFormComponent implements OnInit {
 
-  private user: User;
+  user: User;
   private passwordConfirm: String;
   private isValidPassword: boolean;
   private isPasswordEmpty: boolean;

@@ -34,7 +34,7 @@ export class UserGridComponent implements OnInit {
     );
   }
 
-  private initPassword(user : User) {
+  private initPassword(user: User) {
     this.userService
       .initializePassword(user)
       .subscribe(

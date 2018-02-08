@@ -1,5 +1,5 @@
 <label aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-md" [class.invalid]="model.invalid && (model.dirty || model.touched)">        
-    <input  [attr.id]="uid"
+    <input  [id]="uniqueId"
             type="text" 
             [(ngModel)]="value" 
             #model="ngModel" 

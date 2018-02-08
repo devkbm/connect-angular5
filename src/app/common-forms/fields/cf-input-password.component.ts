@@ -18,15 +18,16 @@ export class CfInputPasswordComponent implements OnInit {
 
   private innerValue: any = '';
 
-  @Input() isRequired: boolean = false;
+  @Input() uniqueId: String;
+  @Input() isRequired = false;
   @Input() inputType: String = 'text';
   @Input() placeholderText: String = 'PLACEHOLDER';
   @Input() tooltipText: String;
 
   @Output() valueChanged: EventEmitter<string> = new EventEmitter();
 
-  //Placeholders for the callbacks which are later provided
-  //by the Control Value Accessor
+  // Placeholders for the callbacks which are later provided
+  // by the Control Value Accessor
   private onTouchedCallback: () => void = noop;
   private onChangeCallback: (_: any) => void = noop;
 
