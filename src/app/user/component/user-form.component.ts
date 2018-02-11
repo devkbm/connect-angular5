@@ -7,6 +7,8 @@ import { ResponseObject } from '../../common-layout/model/response-object';
 import { User } from '../model/user-info';
 
 import { AuthoritySelectboxesComponent } from './authority-selectboxes.component';
+import { AppError } from '../error/app-error';
+import { UserNotFoundError } from '../error/user-not-found-error';
 
 @Component({
   selector: 'app-user-form',
@@ -96,8 +98,11 @@ export class UserFormComponent implements OnInit {
           console.log(model);
           this.appAlarmService.changeMessage(model.message);
         },
-        (err) => {
+        (err: AppError) => {
           console.log(err);
+          if (err instanceof UserNotFoundError) {
+            console.log('유저정보가 없음');
+          }
         },
         () => {
           console.log('완료');

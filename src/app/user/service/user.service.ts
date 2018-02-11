@@ -12,6 +12,8 @@ import { ResponseObject } from '../../common-layout/model/response-object';
 import { ResponseList } from '../../common-layout/model/response-list';
 import { User } from '../model/user-info';
 import { Authority } from '../model/authority-info';
+import { UserNotFoundError } from '../error/user-not-found-error';
+import { error } from 'util';
 
 @Injectable()
 export class UserService {
@@ -32,7 +34,7 @@ export class UserService {
       .map((response: Response) => {
         return response;
       })
-      .catch((err) => Observable.throw(err));
+      .catch((err) => Observable.throw(new UserNotFoundError(err)));
   }
 
   getUser(id: string): Observable<ResponseObject<User>> {
