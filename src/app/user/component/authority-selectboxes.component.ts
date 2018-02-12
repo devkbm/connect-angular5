@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Authority } from '../model/authority-info';
 import { UserService } from '../service/user.service';
-import { ResponseList } from '../../common-layout/model/response-list';
+import { ResponseList } from '../../common/common-service/model/response-list';
 
 @Component({
   selector: 'app-authority-selectboxes',

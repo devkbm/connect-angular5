@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { LoginService } from '../service/login.service';
 
-import { ResponseObject } from '../../common-layout/model/response-object';
+import { ResponseObject } from '../../common/common-service/model/response-object';
 import { User } from '../model/user-info';
 import { UserToken } from '../model/user-token';
 

@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { UserService } from '.././service/user.service';
 
-import { ResponseList } from '../../common-layout/model/response-list';
 import { User } from '.././model/user-info';
-import { ResponseObject } from '../../common-layout/model/response-object';
+
+import { ResponseObject } from '../../common/common-service/model/response-object';
+import { ResponseList } from '../../common/common-service/model/response-list';
 
 @Component({
   selector: 'app-user-grid',

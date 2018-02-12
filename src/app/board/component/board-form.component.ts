@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { BoardService } from '.././service/board.service';
 
-import { ResponseObject } from '../../common-layout/model/response-object';
+import { ResponseObject } from '../../common/common-service/model/response-object';
 import { Board } from '.././model/board';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { UserService } from '.././service/user.service';
 
-import { ResponseList } from '../../common-layout/model/response-list';
+import { ResponseList } from '../../common/common-service/model/response-list';
 import { Authority } from '../model/authority-info';
 
 @Component({

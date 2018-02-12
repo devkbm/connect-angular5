@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { BoardService } from '.././service/board.service';
 
-import { ResponseList } from '../../common-layout/model/response-list';
+import { ResponseList } from '../../common/common-service/model/response-list';
 import { Board } from '.././model/board';
 
 @Component({

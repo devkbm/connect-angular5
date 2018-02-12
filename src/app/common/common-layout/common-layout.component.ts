@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppAlarmService } from './app-alarm.service';
+import { AppAlarmService } from '../common-service/app-alarm.service';
 
 @Component({
   selector: 'app-common-layout',
