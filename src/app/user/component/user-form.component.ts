@@ -18,7 +18,7 @@ import { UserNotFoundError } from '../error/user-not-found-error';
 export class UserFormComponent implements OnInit {
 
   user: User;
-  private passwordConfirm: String;
+  passwordConfirm: String;
   private isValidPassword: boolean;
   private isPasswordEmpty: boolean;
   private isPasswordConfirmEmpty: boolean;
@@ -110,8 +110,14 @@ export class UserFormComponent implements OnInit {
       );
   }
 
-  private validPassword(checkPassword: String) {
-    this.user.password === checkPassword ? this.isValidPassword = true : this.isValidPassword = false;
+  private validPassword(field) {
+
+    if ( this.user.password === this.passwordConfirm) {
+      // 폼 검증 수행해야 함
+    } else {
+      // 폼 검증 실패
+    }
+
   }
 
   private checkEmptyPassword() {

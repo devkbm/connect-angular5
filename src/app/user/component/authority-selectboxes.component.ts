@@ -10,10 +10,10 @@ import { ResponseList } from '../../common/common-service/model/response-list';
 })
 export class AuthoritySelectboxesComponent implements OnInit {
 
-  private authList: Authority[];
-    
+  authList: Authority[];
+
   authorities;
-  
+
   @Output()
   authChanged = new EventEmitter();
 
@@ -40,7 +40,7 @@ export class AuthoritySelectboxesComponent implements OnInit {
         (model: ResponseList<Authority>) => {
           if (model.total > 0) {
             this.authList = model.data;
-          } 
+          }
         },
         (err) => {
           console.log(err);
@@ -51,5 +51,12 @@ export class AuthoritySelectboxesComponent implements OnInit {
       );
   }
 
-  
+  selectItem(item) {
+    console.log(item);
+    console.log(item.target.value);
+    console.log(item.target.selectedIndex);
+    console.log(item.target.selectedOptions);
+
+  }
+
 }
