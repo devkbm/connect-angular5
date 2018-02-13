@@ -55,9 +55,9 @@ export class UserFormComponent implements OnInit {
   }
 
   private registerUser() {
-    if ( this.isValidPassword !== true ) {
+    /*if ( this.isValidPassword !== true ) {
       return;
-    }
+    }*/
 
     this.userService
       .registerUser(this.user)

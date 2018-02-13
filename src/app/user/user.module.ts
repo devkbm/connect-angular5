@@ -16,13 +16,15 @@ import { AuthorityGridComponent } from './component/authority-grid.component';
 import { AuthorityFormComponent } from './component/authority-form.component';
 import { AuthoritySelectboxesComponent } from './component/authority-selectboxes.component';
 
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ClarityModule,
-    CommonFormsModule
+    CommonFormsModule,
+    NgSelectModule
   ],
   declarations: [
     LoginComponent,

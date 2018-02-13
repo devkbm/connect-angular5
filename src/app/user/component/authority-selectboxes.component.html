@@ -1,4 +1,4 @@
-<div class="form-group">
+<!--<div class="form-group">
   <label for="authorities">권한</label>
   <div class="select multiple">
       <select multiple id="authorities" name="authorities"  [ngModel]="authList" (change)="selectItem($event)">
@@ -7,4 +7,13 @@
         </option>          
       </select>
   </div>
-</div>
+</div>-->
+<ng-select  [items]="authList"
+            bindLabel="description"
+            bindValue="authority"
+            plcaseholder="권한을 선택해주세요."
+            [(ngModel)]="value"
+            multiple="true"
+            (blur)="onBlur()" 
+            (change)="selectItem($event)">
+</ng-select>
