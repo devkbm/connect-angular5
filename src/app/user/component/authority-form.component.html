@@ -1,5 +1,5 @@
 <form>
-    {{user | json}}
+    {{auth | json}}
     <section class="form-block">
         <label>권한 등록</label>      
         <div class="form-group" >
@@ -25,6 +25,6 @@
         
         <button class="btn btn-primary" (click)="getAuthority()">조회</button>
         <button type="submit" class="btn btn-primary" (click)="registerAuthority()">등록</button>
-        <button class="btn btn-primary" (click)="deleteUser()">삭제</button>
+        <!--<button class="btn btn-primary" (click)="deleteUser()">삭제</button>-->
     </section>
 </form>

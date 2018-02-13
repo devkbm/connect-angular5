@@ -12,8 +12,9 @@ import { Authority } from '../model/authority-info';
 })
 export class AuthorityGridComponent implements OnInit {
 
-  searchTitle: string;
+  searchAuthority: string;
   authorityList: Authority[];
+  selectedAuthority: Authority;
 
   constructor(private userService: UserService) { }
 

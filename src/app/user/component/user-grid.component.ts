@@ -16,6 +16,7 @@ export class UserGridComponent implements OnInit {
 
   searchTitle: string;
   userList: User[];
+  selectedUser: User;
 
   constructor(private userService: UserService) { }
 

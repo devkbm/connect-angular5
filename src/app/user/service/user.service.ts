@@ -19,68 +19,59 @@ export class UserService extends DataService {
   constructor(http: HttpClient) {
     super('http://localhost:8090/user', http);
   }
-  
+
   checkUser(id: string): Observable<ResponseObject<User>> {
     const url = `${this.API_URI}/${id}/check`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(new UserNotFoundError(err)));
   }
 
   getUser(id: string): Observable<ResponseObject<User>> {
     const url = `${this.API_URI}/${id}`;
-    console.log(this.getAuthorizedHttpHeaders());
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 
   getUserList(): Observable<ResponseList<User>> {
     const url = `${this.API_URI}`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
+      // .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 
   registerUser(user: User): Observable<ResponseObject<User>> {
     return this.http
       .post(this.API_URI + '/' + user.userId, user, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 
   deleteUser(user: User): Observable<ResponseObject<User>> {
     return this.http
     .delete(this.API_URI + '/' + user.userId, {headers: this.getAuthorizedHttpHeaders()})
-    .map(this.responseMap)
     .catch((err) => Observable.throw(err));
   }
 
   initializePassword(user: User): Observable<ResponseObject<String>> {
     return this.http
-      .post(this.API_URI+ '/' + user.userId + '/initPassword', user, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
+      .post(this.API_URI + '/' + user.userId + '/initPassword', user, {headers: this.getAuthorizedHttpHeaders()})
       .catch((err) => Observable.throw(err));
   }
 
   getAuthorityList(): Observable<ResponseList<Authority>> {
     const url = `${this.API_URI2}`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 
   getAuthority(id: string): Observable<ResponseObject<Authority>> {
     const url = `${this.API_URI2}/${id}`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 
   registerAuthority(authority: Authority): Observable<ResponseObject<Authority>> {
     return this.http
       .post(this.API_URI2, authority, {headers: this.getAuthorizedHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 }

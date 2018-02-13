@@ -1,35 +1,25 @@
 <clr-datagrid [(clrDgSingleSelected)]="selectedUser" [clDgRowSelection]="true">
   <clr-dg-action-bar>
     <div>            
-        <label for="search_title" class="required">검색</label>
-        <label for="search_title" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="title.invalid && (title.dirty || title.touched)">                                
-            <input #title="ngModel" [(ngModel)]="fkBoardInput" [ngModelOptions]="{standalone: true}"   
-                type="text" 
-                id="search_title" 
-                placeholder="사용자 아이디 또는 사용자명"                 
-                size="10"
-                required 
-                >
-            <span class="tooltip-content">
-            This field cannot be empty!
-            </span>
-        </label>          
-    </div>
-      <span class="username" *ngIf="selectedUser">{{selectedUser.userId}}</span>&nbsp;&nbsp;<span>{{searchTitle}}</span>
+        <label for="search_user" class="required">검색</label>        
+        <input  [(ngModel)]="searchTitle" [ngModelOptions]="{standalone: true}"   
+                id="search_user" 
+                type="text"                 
+                placeholder="사용자 아이디"                 
+                size="20">            
+    </div>      
       <button class="btn btn-sm btn-secondary" (click)="getArticleList()">조회</button>      
   </clr-dg-action-bar>
   
   <clr-dg-column [clrDgField]="'userId'"    [style.width.px]="130">사용자 아이디</clr-dg-column>
-  <clr-dg-column [clrDgField]="'name'">성명</clr-dg-column>
-  <clr-dg-column [clrDgField]="'password'"  [style.width.px]="130">비밀번호</clr-dg-column>    
-  <clr-dg-column [clrDgField]="'enabled'"   [style.width.px]="130">사용여부</clr-dg-column>  
+  <clr-dg-column [clrDgField]="'name'">성명</clr-dg-column>  
+  <clr-dg-column [clrDgField]="'enabled'"   [style.width.px]="100">사용여부</clr-dg-column>  
   <clr-dg-column                            [style.width.px]="130">Action</clr-dg-column>  
-  
+
   <clr-dg-row *clrDgItems="let user of userList" [clrDgItem]="user">
         <clr-dg-cell>{{user.userId}}</clr-dg-cell>
-        <clr-dg-cell>{{user.name}}</clr-dg-cell>
-        <clr-dg-cell>{{user.password}}</clr-dg-cell>
-        <clr-dg-cell><input type="checkbox" name="enabled" [(ngModel)]="user.enabled"></clr-dg-cell>
+        <clr-dg-cell>{{user.name}}</clr-dg-cell>        
+        <clr-dg-cell [style.text-align]="'center'"><clr-checkbox name="enabled" [(ngModel)]="user.enabled"></clr-checkbox></clr-dg-cell>                    
         <clr-dg-cell><button class="btn btn-primary" (click)="initPassword(selectedUser)">비밀번호 초기화</button></clr-dg-cell>
     </clr-dg-row>
 

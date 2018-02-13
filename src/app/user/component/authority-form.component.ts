@@ -15,7 +15,7 @@ import { Authority } from '../model/authority-info';
 })
 export class AuthorityFormComponent implements OnInit {
 
-  private auth: Authority;
+  auth: Authority;
 
   constructor(private userService: UserService,
               private appAlarmService: AppAlarmService) { }

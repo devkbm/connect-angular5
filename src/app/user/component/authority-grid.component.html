@@ -3,10 +3,10 @@
         <div>            
             <label for="search_title" class="required">검색</label>
             <label for="search_title" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="title.invalid && (title.dirty || title.touched)">                                
-                <input #title="ngModel" [(ngModel)]="fkBoardInput" [ngModelOptions]="{standalone: true}"   
+                <input #title="ngModel" [(ngModel)]="searchAuthority" [ngModelOptions]="{standalone: true}"   
                     type="text" 
                     id="search_title" 
-                    placeholder="게시글 제목"                 
+                    placeholder="권한명"                 
                     size="10"
                     required 
                     >
@@ -15,12 +15,11 @@
                 </span>
             </label>          
         </div>
-        <span class="username" *ngIf="selectedAuthority">{{selectedAuthority.userId}}</span>&nbsp;&nbsp;<span>{{searchTitle}}</span>
         <button class="btn btn-sm btn-secondary" (click)="getAuthorityList()">조회</button>      
     </clr-dg-action-bar>
   
-    <clr-dg-column [clrDgField]="'authority'"    [style.width.px]="130">권한</clr-dg-column>
-    <clr-dg-column [clrDgField]="'description'"      [style.width.px]="130">설명</clr-dg-column>
+    <clr-dg-column [clrDgField]="'authority'"   [style.width.px]="130">권한</clr-dg-column>
+    <clr-dg-column [clrDgField]="'description'" [style.width.px]="130">설명</clr-dg-column>
     
     <clr-dg-row *clrDgItems="let auth of authorityList" [clrDgItem]="auth">
         <clr-dg-cell>{{auth.authority}}</clr-dg-cell>
