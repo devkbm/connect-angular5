@@ -23,6 +23,8 @@ export class UserFormComponent implements OnInit {
   private isPasswordEmpty: boolean;
   private isPasswordConfirmEmpty: boolean;
 
+  popup: boolean;
+
   @Output() messageChanged: EventEmitter<string> = new EventEmitter();
 
   constructor(private userService: UserService,
@@ -64,6 +66,7 @@ export class UserFormComponent implements OnInit {
       .subscribe(
         (model: ResponseObject<User>) => {
           console.log(model);
+          this.appAlarmService.changeMessage(model.message);
         },
         (err) => {
           console.log(err);
@@ -80,11 +83,13 @@ export class UserFormComponent implements OnInit {
       .subscribe(
         (model: ResponseObject<User>) => {
           console.log(model);
+          this.appAlarmService.changeMessage(model.message);
         },
         (err) => {
           console.log(err);
         },
         () => {
+          this.popup = false;
           console.log('완료');
         }
       );

@@ -118,6 +118,17 @@
         
         <button class="btn btn-primary" (click)="getUser()">조회</button>
         <button type="submit" class="btn btn-primary" (click)="registerUser()">등록</button>
-        <button class="btn btn-primary" (click)="deleteUser()">삭제</button>
+        <button class="btn btn-primary" (click)="popup = true">삭제</button>
+        <clr-modal [(clrModalOpen)]="popup"> 
+            <h3 class="modal-title">사용자 삭제</h3>
+            <div class="modal-body">
+                <p>사용자 정보를 삭제하시겠습니까?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" (click)="popup = false">Cancel</button>
+                <button class="btn btn-primary" (click)="deleteUser()">Ok</button>
+            </div>
+        </clr-modal>
+
     </section>
 </form>
