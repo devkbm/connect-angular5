@@ -14,6 +14,8 @@ import { BoardComponent } from '../../board/component/board.component';
 import { ArticleFormComponent } from '../../board/component/article-form.component';
 import { AuthorityGridComponent } from '../../user/component/authority-grid.component';
 import { AuthorityFormComponent } from '../../user/component/authority-form.component';
+import { MenuGroupFormComponent } from '../common-forms/menu-group-form.component';
+import { MenuFormComponent } from '../common-forms/menu-form.component';
 
 const layoutroutes: Routes = [
   {
@@ -21,6 +23,8 @@ const layoutroutes: Routes = [
     children: [
       {path: 'test',        component: TestComponent},
       {path: 'test2',       component: Test2Component},
+      {path: 'menuGroupFrom', component: MenuGroupFormComponent},
+      {path: 'menuFrom',    component: MenuFormComponent},
       {path: 'regform',     component: UserFormComponent},
       {path: 'userList',    component: UserGridComponent},
       {path: 'authList',    component: AuthorityGridComponent},

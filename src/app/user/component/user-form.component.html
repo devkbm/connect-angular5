@@ -52,6 +52,10 @@
             <app-authority-selectboxes name="authority" [(ngModel)]="user.authorityList"></app-authority-selectboxes>
         </div>
         <div class="form-group">
+            <label for="menugroup" class="required">권한</label>
+            <app-menugroup-selectboxes name="menugroup" [(ngModel)]="user.menuGroupList"></app-menugroup-selectboxes>
+        </div>
+        <div class="form-group">
             <label class="required">사용여부</label>
             <clr-checkbox
                 name="useYnCheckbox" 

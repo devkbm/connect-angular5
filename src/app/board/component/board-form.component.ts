@@ -23,7 +23,7 @@ export class BoardFormComponent implements OnInit {
   getBoard(id: number) {
     this.boardService.getBoard(this.board.pkBoard)
       .subscribe(
-        (model: ResponseObject<Board>)=>{
+        (model: ResponseObject<Board>) => {
           if (model.data) {
             this.board = model.data;
           } else {

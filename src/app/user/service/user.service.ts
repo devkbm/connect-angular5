@@ -10,11 +10,14 @@ import { ResponseList } from '../../common/common-service/model/response-list';
 import { User } from '../model/user-info';
 import { Authority } from '../model/authority-info';
 import { UserNotFoundError } from '../error/user-not-found-error';
+import { MenuGroup } from '../../common/common-service/menu-group';
 
 @Injectable()
 export class UserService extends DataService {
 
-  private API_URI2 = 'http://localhost:8090/authority';
+  private AUTHORITY_API_URI = 'http://localhost:8090/authority';
+
+  private MENU_GROUP_API_URI = 'http://localhost:8090/menugroup';
 
   constructor(http: HttpClient) {
     super('http://localhost:8090/user', http);
@@ -58,20 +61,26 @@ export class UserService extends DataService {
   }
 
   getAuthorityList(): Observable<ResponseList<Authority>> {
-    const url = `${this.API_URI2}`;
+    const url = `${this.AUTHORITY_API_URI}`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
       .catch((err) => Observable.throw(err));
   }
 
   getAuthority(id: string): Observable<ResponseObject<Authority>> {
-    const url = `${this.API_URI2}/${id}`;
+    const url = `${this.AUTHORITY_API_URI}/${id}`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
       .catch((err) => Observable.throw(err));
   }
 
   registerAuthority(authority: Authority): Observable<ResponseObject<Authority>> {
     return this.http
-      .post(this.API_URI2, authority, {headers: this.getAuthorizedHttpHeaders()})
+      .post(this.AUTHORITY_API_URI, authority, {headers: this.getAuthorizedHttpHeaders()})
+      .catch((err) => Observable.throw(err));
+  }
+
+  getMenuGroupList(): Observable<ResponseList<MenuGroup>> {
+    const url = `${this.MENU_GROUP_API_URI}`;
+    return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
       .catch((err) => Observable.throw(err));
   }
 }

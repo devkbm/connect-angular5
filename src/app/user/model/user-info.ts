@@ -4,4 +4,5 @@ export class User {
     name: string;
     enabled: boolean;
     authorityList: string[];
+    menuGroupList: string[];
 }

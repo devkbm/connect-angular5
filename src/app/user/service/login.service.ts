@@ -23,12 +23,11 @@ export class LoginService extends DataService {
    * @paramTag 비밀번호
    * @returnType {UserToken} Token 정보
    */
-  doLogin(id: string, pwd: string): Observable<UserToken> {    
+  doLogin(id: string, pwd: string): Observable<UserToken> {
     const body = {username: id, password: pwd};
 
     return this.http
       .post(this.API_URI, body, {headers: this.getHttpHeaders()})
-      .map(this.responseMap)
       .catch((err) => Observable.throw(err));
   }
 }

@@ -1,25 +1,26 @@
 import { Component, OnInit, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS,  ControlValueAccessor, AbstractControl } from '@angular/forms';
-import { Authority } from '../model/authority-info';
+
 import { UserService } from '../service/user.service';
 import { ResponseList } from '../../common/common-service/model/response-list';
+import { MenuGroup } from '../../common/common-service/menu-group';
 
 const noop = () => {
 };
 
 @Component({
-  selector: 'app-authority-selectboxes',
-  templateUrl: './authority-selectboxes.component.html',
+  selector: 'app-menugroup-selectboxes',
+  templateUrl: './menugroup-selectboxes.component.html',
   styles: [''],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => AuthoritySelectboxesComponent),
+    useExisting: forwardRef(() => MenuGroupSelectboxesComponent),
     multi: true
   }]
 })
-export class AuthoritySelectboxesComponent implements OnInit, ControlValueAccessor  {
+export class MenuGroupSelectboxesComponent implements OnInit, ControlValueAccessor  {
 
-  authList: Authority[];
+  menuGroupList: MenuGroup[];
 
   private innerValue: any[];
 
@@ -34,7 +35,7 @@ export class AuthoritySelectboxesComponent implements OnInit, ControlValueAccess
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.getAuthorityList();
+    this.getMenuGroupList();
   }
 
   @Input()
@@ -50,13 +51,13 @@ export class AuthoritySelectboxesComponent implements OnInit, ControlValueAccess
 
   }
 
-  private getAuthorityList() {
+  private getMenuGroupList() {
     this.userService
-      .getAuthorityList()
+      .getMenuGroupList()
       .subscribe(
-        (model: ResponseList<Authority>) => {
+        (model: ResponseList<MenuGroup>) => {
           if (model.total > 0) {
-            this.authList = model.data;
+            this.menuGroupList = model.data;
           }
         },
         (err) => {

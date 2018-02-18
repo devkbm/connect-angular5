@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 import { CommonFormsModule } from '../common/common-forms/common-forms.module';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './login/login.component';
 import { UserFormComponent } from './component/user-form.component';
@@ -18,6 +18,7 @@ import { AuthorityFormComponent } from './component/authority-form.component';
 import { AuthoritySelectboxesComponent } from './component/authority-selectboxes.component';
 
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MenuGroupSelectboxesComponent } from './component/menugroup-selectboxes.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     UserGridComponent,
     AuthorityGridComponent,
     AuthorityFormComponent,
-    AuthoritySelectboxesComponent
+    AuthoritySelectboxesComponent,
+    MenuGroupSelectboxesComponent
   ],
   providers: [
     LoginService,

@@ -1,0 +1,75 @@
+<form>
+    {{menu | json}} 
+    <section class="form-block">
+        <label>메뉴그룹 신규 등록</label>      
+        <div class="form-group" >
+            <label for="menu_group_code" class="required">메뉴그룹코드</label>
+            <cf-input   [uniqueId]="'menu_group_code'"
+                        [(ngModel)]="menu.menuGroupCode" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'메뉴그룹코드를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>                                  
+        </div>
+        <div class="form-group" >
+            <label for="menu_code" class="required">메뉴코드</label>
+            <cf-input   [uniqueId]="'menu_code'"
+                        [(ngModel)]="menu.menuCode" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'메뉴코드를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>
+        <div class="form-group" >
+            <label for="menu_name" class="required">메뉴명</label>
+            <cf-input   [uniqueId]="'menu_name'"
+                        [(ngModel)]="menu.menuName" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'메뉴명을 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>        
+        <div class="form-group" >
+            <label for="p_menu_code">상위부서코드</label>
+            <cf-input   [uniqueId]="'p_menu_code'"
+                        [(ngModel)]="menu.parentMenuCode" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'상위부서코드를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)">
+            </cf-input>            
+        </div>        
+        <div class="form-group" >
+            <label for="sequence" class="required">순번</label>
+            <cf-input   [uniqueId]="'sequence'"
+                        [(ngModel)]="menu.sequence" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'URL을 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>    
+        <div class="form-group" >
+            <label for="url" class="required">URL</label>
+            <cf-input   [uniqueId]="'url'"
+                        [(ngModel)]="menu.url" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'URL을 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>                          
+        
+        <button class="btn btn-primary" (click)="getMenu()">조회</button>
+        <button type="submit" class="btn btn-primary" (click)="submitMenu()">등록</button>
+      <!--<button class="btn btn-primary" (click)="popup = true">삭제</button> -->
+    </section>
+</form>

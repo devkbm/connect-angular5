@@ -9,15 +9,15 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
-export class DataService {    
+export class DataService {
 
-    protected responseMap =  (res: Response) => { return res; };
-      
+    protected responseMap =  (res: Response) => res;
+
     constructor(protected API_URI: string, protected http: HttpClient) { }
 
     /**
      * @description HttpHeaders를 가져온다.
-     * @returnType {HttpHeaders} 
+     * @returnType {HttpHeaders}
      */
     protected getHttpHeaders(): HttpHeaders {
         return new HttpHeaders().set('Content-Type', 'application/json');
@@ -25,9 +25,9 @@ export class DataService {
 
     /**
      * @description 로그인 후 인증된 HttpHeaders를 가져온다.
-     * @returnType {HttpHeaders} 
+     * @returnType {HttpHeaders}
      */
-    protected getAuthorizedHttpHeaders(): HttpHeaders {        
+    protected getAuthorizedHttpHeaders(): HttpHeaders {
         return new HttpHeaders()
             .set('Content-Type', 'application/json')
             .set('x-auth-token', sessionStorage.getItem('token'));

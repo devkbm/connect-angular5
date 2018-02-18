@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { CfInputComponent } from './fields/cf-input.component';
 import { CfInputPasswordComponent } from './fields/cf-input-password.component';
+import { MenuGroupFormComponent } from './menu-group-form.component';
+import { MenuFormComponent } from './menu-form.component';
 
 @NgModule({
   imports: [
@@ -12,7 +14,9 @@ import { CfInputPasswordComponent } from './fields/cf-input-password.component';
   ],
   declarations: [
     CfInputComponent,
-    CfInputPasswordComponent
+    CfInputPasswordComponent,
+    MenuGroupFormComponent,
+    MenuFormComponent
   ],
   exports: [
     CfInputComponent,

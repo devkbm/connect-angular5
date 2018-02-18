@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private validLogin() {        
+  private validLogin() {
     if (this.checkEmptyField('all') === false ) {
       return;
     }
@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
       (model: UserToken) => {
         console.log(model);
         sessionStorage.setItem('token', model.token);
+        sessionStorage.setItem('menuGroupList', JSON.stringify(model.menuGroupList));
+
         /*this.loginSuccess = model.success;
         this.responseMessage = model.message;
         if (this.loginSuccess) {
@@ -69,7 +71,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.removeItem('token');
         localStorage.removeItem('rememberUserId');
       },
-      () => {        
+      () => {
         console.log(this.responseMessage);
       }
     );

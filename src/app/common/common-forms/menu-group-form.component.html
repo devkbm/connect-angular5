@@ -1,0 +1,37 @@
+<form>
+    {{menuGroup | json}} 
+    <section class="form-block">
+        <label>메뉴그룹 신규 등록</label>      
+        <div class="form-group" >
+            <label for="menu_group_code" class="required">메뉴그룹코드</label>
+            <cf-input   [uniqueId]="'menu_group_code'"
+                        [(ngModel)]="menuGroup.menuGroupCode" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'메뉴그룹코드를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>                                  
+        </div>
+        <div class="form-group" >
+            <label for="menu_group_name" class="required">메뉴그룹명</label>
+            <cf-input   [uniqueId]="'menu_group_name'"
+                        [(ngModel)]="menuGroup.menuGroupName" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'메뉴그룹명을 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>
+      
+        <div class="form-group">
+            <label for="cmt">비고</label>
+            <textarea id="cmt" rows="5" [(ngModel)]="menuGroup.description" [ngModelOptions]="{standalone: true}"></textarea>
+        </div>
+                  
+        <button class="btn btn-primary" (click)="getMenuGroup(menuGroup.menuGroupCode)">조회</button>
+        <button type="submit" class="btn btn-primary" (click)="submitMenuGroup()">등록</button>
+      <!--<button class="btn btn-primary" (click)="popup = true">삭제</button> -->
+    </section>
+</form>
