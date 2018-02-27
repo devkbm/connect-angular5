@@ -1,3 +1,5 @@
+import { Program } from './Program';
+
 export class Menu {
     createdDt;
     createdBy;
@@ -9,5 +11,5 @@ export class Menu {
     parentMenuCode: string;
     sequence: number;
     level: number;
-    url: string;
+    program: Program;
 }
