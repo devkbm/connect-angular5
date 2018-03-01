@@ -1,0 +1,42 @@
+<form>
+    {{program | json}} 
+    <section class="form-block">
+        <label>프로그램 신규 등록</label>      
+        <div class="form-group" >
+            <label for="program_code" class="required">프로그램코드</label>
+            <cf-input   [uniqueId]="'menu_group_code'"
+                        [(ngModel)]="program.programCode" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'프로그램코드를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>                                  
+        </div>        
+        <div class="form-group" >
+            <label for="program_name" class="required">프로그램명</label>
+            <cf-input   [uniqueId]="'program_name'"
+                        [(ngModel)]="program.programName" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'프로그램명을 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)"
+                        [isRequired]=true>
+            </cf-input>            
+        </div>        
+        <div class="form-group" >
+            <label for="url">URL 정보</label>
+            <cf-input   [uniqueId]="'url'"
+                        [(ngModel)]="program.url" 
+                        [ngModelOptions]="{standalone: true}" 
+                        [placeholderText]="'URL 정보를 입력해주세요.'" 
+                        [tooltipText]="'필수 정보입니다.'"
+                        (valueChanged)="onValueChange($event)">
+            </cf-input>            
+        </div>                                
+        
+        <button class="btn btn-primary" (click)="getProgram()">조회</button>
+        <button type="submit" class="btn btn-primary" (click)="submitProgram()">등록</button>
+      <!--<button class="btn btn-primary" (click)="popup = true">삭제</button> -->
+    </section>
+</form>

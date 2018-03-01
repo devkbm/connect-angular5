@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuService } from '../common-service/menu.service';
-
+import { ProgramService } from '../common-service/program.service';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { MenuService } from '../common-service/menu.service';
     ClarityModule
   ],
   declarations: [CommonLayoutComponent, HeaderComponent, MainComponent, SidebarComponent],
-  providers: [ MenuService ],
+  providers: [ MenuService, ProgramService ],
   exports: [CommonLayoutComponent]
 })
 export class CommonLayoutModule { }

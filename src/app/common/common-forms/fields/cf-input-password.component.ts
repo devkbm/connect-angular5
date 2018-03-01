@@ -67,7 +67,7 @@ export class CfInputPasswordComponent implements OnInit {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    //throw new Error("Method not implemented.");
+    // throw new Error("Method not implemented.");
   }
 
   onChange(event: any)  {

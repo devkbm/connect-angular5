@@ -1,0 +1,9 @@
+<ng-select  [items]="programList"
+            bindLabel="programName"
+            bindValue="programCode"
+            plcaseholder="프로그램을 선택해주세요."
+            [(ngModel)]="value"
+            multiple="false"
+            (blur)="onBlur()" 
+            (change)="selectItem($event)">
+</ng-select>
