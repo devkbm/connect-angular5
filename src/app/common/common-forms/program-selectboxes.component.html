@@ -2,8 +2,9 @@
             bindLabel="programName"
             bindValue="programCode"
             plcaseholder="프로그램을 선택해주세요."
-            [(ngModel)]="value"
-            multiple="false"
+            [(ngModel)]="value"            
             (blur)="onBlur()" 
+            width="50px"
+            size=50
             (change)="selectItem($event)">
 </ng-select>
