@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS,  ControlValueAccessor, AbstractControl } from '@angular/forms';
 
-import { ResponseList } from '../../common/common-service/model/response-list';
-import { ProgramService } from '../common-service/program.service';
-import { Program } from '../common-service/Program';
+import { ResponseList } from '../../../common/common-service/model/response-list';
+import { ProgramService } from '../../common-service/program.service';
+import { Program } from '../../common-service/Program';
 
 const noop = () => {
 };

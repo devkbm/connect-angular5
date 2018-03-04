@@ -6,11 +6,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { CfInputComponent } from './fields/cf-input.component';
 import { CfInputPasswordComponent } from './fields/cf-input-password.component';
-import { MenuGroupFormComponent } from './menu-group-form.component';
-import { MenuFormComponent } from './menu-form.component';
-import { ProgramFormComponent } from './program-form.component';
-import { ProgramSelectboxesComponent } from './program-selectboxes.component';
-import { ProgramGridComponent } from './program-grid.component';
+import { MenuGroupFormComponent } from './component/menu-group-form.component';
+import { MenuFormComponent } from './component/menu-form.component';
+import { ProgramFormComponent } from './component/program-form.component';
+import { ProgramSelectboxesComponent } from './component/program-selectboxes.component';
+import { ProgramGridComponent } from './component/program-grid.component';
+import { MenuGroupGridComponent } from './component/menu-group-grid.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ProgramGridComponent } from './program-grid.component';
     CfInputComponent,
     CfInputPasswordComponent,
     MenuGroupFormComponent,
+    MenuGroupGridComponent,
     MenuFormComponent,
     ProgramFormComponent,
     ProgramSelectboxesComponent,

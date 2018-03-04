@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ProgramService } from '../common-service/program.service';
-import { ResponseList } from '../../common/common-service/model/response-list';
-import { Program } from '../common-service/Program';
+import { ProgramService } from '../../common-service/program.service';
+import { ResponseList } from '../../../common/common-service/model/response-list';
+import { Program } from '../../common-service/Program';
 
 
 @Component({

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../common-service/menu.service';
-import { AppAlarmService } from '../common-service/app-alarm.service';
-import { MenuGroup } from '../common-service/menu-group';
-import { ResponseObject } from '../common-service/model/response-object';
+import { MenuService } from '../../common-service/menu.service';
+import { AppAlarmService } from '../../common-service/app-alarm.service';
+import { MenuGroup } from '../../common-service/menu-group';
+import { ResponseObject } from '../../common-service/model/response-object';
 
 @Component({
   selector: 'app-menu-group-form',
