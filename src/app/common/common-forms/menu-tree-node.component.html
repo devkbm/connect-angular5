@@ -1,0 +1,9 @@
+<clr-tree-node [(clrSelected)]="item.selected">
+  {{item.name}}
+  <ng-template 
+    [clrIfExpanded]="item.expanded" 
+    *ngFor="let child of item.children">
+      <app-menu-tree-node [item]="child">
+      </app-menu-tree-node>
+  </ng-template>
+</clr-tree-node>

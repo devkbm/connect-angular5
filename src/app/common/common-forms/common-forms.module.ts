@@ -11,6 +11,8 @@ import { MenuFormComponent } from './menu-form.component';
 import { ProgramFormComponent } from './program-form.component';
 import { ProgramSelectboxesComponent } from './program-selectboxes.component';
 import { ProgramGridComponent } from './program-grid.component';
+import { MenuTreeNodeComponent } from './menu-tree-node.component';
+import { MenuTreeComponent } from './menu-tree.component';
 
 
 @NgModule({
@@ -27,8 +29,10 @@ import { ProgramGridComponent } from './program-grid.component';
     MenuFormComponent,
     ProgramFormComponent,
     ProgramSelectboxesComponent,
-    ProgramGridComponent
-  ],
+    ProgramGridComponent,
+    MenuTreeNodeComponent,
+    MenuTreeComponent
+],
   exports: [
     CfInputComponent,
     CfInputPasswordComponent

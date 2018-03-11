@@ -9,6 +9,7 @@ import { ResponseList } from '../../common/common-service/model/response-list';
 
 import { MenuGroup } from './menu-group';
 import { Menu } from './menu';
+import { MenuHierarchy } from './menu-hierarchy';
 
 @Injectable()
 export class MenuService extends DataService {
@@ -45,6 +46,12 @@ export class MenuService extends DataService {
     const url = `${this.API_URI}/${menu.menuGroupCode}/menu/${menu.menuCode}`;
     return this.http
       .post(url, menu, {headers: this.getAuthorizedHttpHeaders()})
+      .catch((err) => Observable.throw(err));
+  }
+
+  getMenuHierarchy(menuGroupCode: String): Observable<ResponseObject<MenuHierarchy>> {
+    const url = `http://localhost:8090/menuhierachy/${menuGroupCode}`;
+    return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
       .catch((err) => Observable.throw(err));
   }
 
