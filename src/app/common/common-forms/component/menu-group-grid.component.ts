@@ -20,7 +20,7 @@ export class MenuGroupGridComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   getMenuGroupList() {
     this.menuService.getMenuGroupList()
       .subscribe(
