@@ -14,10 +14,11 @@ import { BoardComponent } from '../../board/component/board.component';
 import { ArticleFormComponent } from '../../board/component/article-form.component';
 import { AuthorityGridComponent } from '../../user/component/authority-grid.component';
 import { AuthorityFormComponent } from '../../user/component/authority-form.component';
-import { MenuGroupFormComponent } from '../common-forms/menu-group-form.component';
-import { MenuFormComponent } from '../common-forms/menu-form.component';
-import { ProgramFormComponent } from '../common-forms/program-form.component';
-import { ProgramGridComponent } from '../common-forms/program-grid.component';
+import { MenuGroupFormComponent } from '../common-forms/component/menu-group-form.component';
+import { MenuFormComponent } from '../common-forms/component/menu-form.component';
+import { ProgramFormComponent } from '../common-forms/component/program-form.component';
+import { ProgramGridComponent } from '../common-forms/component/program-grid.component';
+import { MenuGroupGridComponent } from '../common-forms/component/menu-group-grid.component';
 
 const layoutroutes: Routes = [
   {
@@ -26,6 +27,7 @@ const layoutroutes: Routes = [
       {path: 'test',        component: TestComponent},
       {path: 'test2',       component: Test2Component},
       {path: 'menuGroupForm', component: MenuGroupFormComponent},
+      {path: 'menuGroupList', component: MenuGroupGridComponent},
       {path: 'menuForm',    component: MenuFormComponent},
       {path: 'programForm', component: ProgramFormComponent},
       {path: 'programList', component: ProgramGridComponent},

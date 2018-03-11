@@ -1,0 +1,37 @@
+<clr-datagrid [(clrDgSingleSelected)]="selectedMenuGroup" [clDgRowSelection]="true">
+    <clr-dg-action-bar>
+        <div>            
+            <label for="search_title" class="required">검색</label>
+            <label for="search_title" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="title.invalid && (title.dirty || title.touched)">                                
+                <input #title="ngModel" [(ngModel)]="searchProgramCode" [ngModelOptions]="{standalone: true}"   
+                    type="text" 
+                    id="search_title" 
+                    placeholder="메뉴그룹명"                 
+                    size="10"
+                    required 
+                    >
+                <span class="tooltip-content">
+                This field cannot be empty!
+                </span>
+            </label>          
+        </div>
+        <button class="btn btn-sm btn-secondary" (click)="getMenuGroupList()">조회</button>      
+    </clr-dg-action-bar>
+  
+    <clr-dg-column [clrDgField]="'menuGroupCode'"     [style.width.px]="130">프로그램코드</clr-dg-column>
+    <clr-dg-column [clrDgField]="'menuGroupName'"     [style.width.px]="130">프로그램명</clr-dg-column>    
+    <clr-dg-column [clrDgField]="'description'"     [style.width.px]="130">설명</clr-dg-column>
+    
+    <clr-dg-row *clrDgItems="let menuGroup of menuGroupList" [clrDgItem]="menuGroup">
+        <clr-dg-cell>{{menuGroup.menuGroupCode}}</clr-dg-cell>
+        <clr-dg-cell>{{menuGroup.menuGroupName}}</clr-dg-cell>  
+        <clr-dg-cell>{{menuGroup.description}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} users
+        </clr-dg-pagination>              
+    </clr-dg-footer>      
+</clr-datagrid>

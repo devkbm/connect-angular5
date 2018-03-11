@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../common-service/menu.service';
-import { AppAlarmService } from '../common-service/app-alarm.service';
-import { MenuGroup } from '../common-service/menu-group';
-import { ResponseObject } from '../common-service/model/response-object';
-import { Menu } from '../common-service/menu';
-import { Program } from '../common-service/Program';
-import { ProgramService } from '../common-service/program.service';
+import { MenuService } from '../../common-service/menu.service';
+import { AppAlarmService } from '../../common-service/app-alarm.service';
+import { MenuGroup } from '../../common-service/menu-group';
+import { ResponseObject } from '../../common-service/model/response-object';
+import { Menu } from '../../common-service/menu';
+import { Program } from '../../common-service/Program';
+import { ProgramService } from '../../common-service/program.service';
 
 @Component({
   selector: 'app-program-form',
