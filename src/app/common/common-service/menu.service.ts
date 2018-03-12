@@ -50,7 +50,7 @@ export class MenuService extends DataService {
   }
 
   getMenuHierarchy(menuGroupCode: String): Observable<ResponseObject<MenuHierarchy>> {
-    const url = `http://localhost:8090/menuhierachy/${menuGroupCode}`;
+    const url = `http://localhost:8090/menuhierarchy/${menuGroupCode}`;
     return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
       .catch((err) => Observable.throw(err));
   }

@@ -14,13 +14,14 @@ import { MenuHierarchy } from '../../common-service/menu-hierarchy';
 export class MenuTreeComponent implements OnInit {
 
   @Input() menuGroupCode: String;
-  item: MenuHierarchy;
+  items: MenuHierarchy;
 
   constructor(private menuService: MenuService,
               private appAlarmService: AppAlarmService) { }
 
   ngOnInit() {
-    this.item = new MenuHierarchy();
+    this.items = new MenuHierarchy();
+    this.menuGroupCode = 'GROUP';
     console.log('MenuTreeComponent init');
   }
 
@@ -31,9 +32,7 @@ export class MenuTreeComponent implements OnInit {
         (model: ResponseObject<MenuHierarchy>) => {
           console.log(model);
           if ( model.total > 0 ) {
-            this.item = model.data;
-          } else {
-            this.item = new MenuHierarchy();
+            this.items[] = model.data;
           }
         },
         (err) => {

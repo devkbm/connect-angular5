@@ -1,4 +1,8 @@
+<!-- -->
+{{items | json}} 
+<button class="btn btn-primary" (click)="getMenu()">조회</button>
 <app-menu-tree-node
-    [item]="selectableRoot"
-    [selected]="selectableRoot.selected">
+    [item]="items"    
+    [selected]="items.selected"
+    >
 </app-menu-tree-node>

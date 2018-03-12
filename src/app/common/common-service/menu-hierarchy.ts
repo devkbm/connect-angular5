@@ -1,5 +1,4 @@
 import { Program } from './Program';
-import { Menu } from './menu';
 
 export class MenuHierarchy {
     createdDt;
@@ -13,5 +12,7 @@ export class MenuHierarchy {
     sequence: number;
     level: number;
     program: Program;
-    children: Menu[];
+    selected: boolean;
+    expanded: boolean;
+    children: MenuHierarchy[];
 }
