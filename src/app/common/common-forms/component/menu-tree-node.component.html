@@ -1,6 +1,6 @@
 <!--  -->
 <clr-tree-node [(clrSelected)]="item.selected">
-  {{item.menuGroupCode}}
+  {{item.menuCode}}
   <ng-template 
     [clrIfExpanded]="item.expanded" 
     *ngFor="let child of item.children">

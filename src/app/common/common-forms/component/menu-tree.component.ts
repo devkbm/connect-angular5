@@ -5,6 +5,7 @@ import { MenuGroup } from '../../common-service/menu-group';
 import { ResponseObject } from '../../common-service/model/response-object';
 import { Menu } from '../../common-service/menu';
 import { MenuHierarchy } from '../../common-service/menu-hierarchy';
+import { ResponseList } from '../../common-service/model/response-list';
 
 @Component({
   selector: 'app-menu-tree',
@@ -14,13 +15,13 @@ import { MenuHierarchy } from '../../common-service/menu-hierarchy';
 export class MenuTreeComponent implements OnInit {
 
   @Input() menuGroupCode: String;
-  items: MenuHierarchy;
+  items: MenuHierarchy[];
 
   constructor(private menuService: MenuService,
               private appAlarmService: AppAlarmService) { }
 
   ngOnInit() {
-    this.items = new MenuHierarchy();
+    // this.items = new MenuHierarchy()[];
     this.menuGroupCode = 'GROUP';
     console.log('MenuTreeComponent init');
   }
@@ -29,10 +30,10 @@ export class MenuTreeComponent implements OnInit {
     this.menuService
       .getMenuHierarchy(this.menuGroupCode)
       .subscribe(
-        (model: ResponseObject<MenuHierarchy>) => {
+        (model: ResponseList<MenuHierarchy>) => {
           console.log(model);
           if ( model.total > 0 ) {
-            this.items[] = model.data;
+            this.items = model.data;
           }
         },
         (err) => {
