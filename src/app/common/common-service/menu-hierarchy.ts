@@ -11,7 +11,7 @@ export class MenuHierarchy {
     parentMenuCode: string;
     sequence: number;
     level: number;
-    program: Program;
+    url: string;
     selected: boolean;
     expanded: boolean;
     children: MenuHierarchy[];

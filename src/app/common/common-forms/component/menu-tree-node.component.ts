@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MenuHierarchy } from '../../common-service/menu-hierarchy';
 
 @Component({
   selector: 'app-menu-tree-node',
@@ -6,6 +7,6 @@ import { Component, Input } from '@angular/core';
   styles: ['']
 })
 export class MenuTreeNodeComponent {
-  @Input() item: any;
+  @Input() item: MenuHierarchy;
   @Input() selected: Boolean = false;
 }

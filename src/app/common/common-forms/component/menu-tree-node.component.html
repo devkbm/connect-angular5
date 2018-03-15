@@ -1,6 +1,10 @@
 <!--  -->
 <clr-tree-node [(clrSelected)]="item.selected">
-  {{item.menuCode}}
+  <a  routerLink="item.url"
+      class="clr-treenode-link"
+      routerLinkActive="active">
+      {{item.menuName}} - {{item.url}}
+  </a>  
   <ng-template 
     [clrIfExpanded]="item.expanded" 
     *ngFor="let child of item.children">
