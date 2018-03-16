@@ -1,0 +1,45 @@
+<clr-datagrid [(clrDgSingleSelected)]="selectedMenu" [clDgRowSelection]="true">
+    <clr-dg-action-bar>
+        <div>            
+            <label for="search_title" class="required">검색</label>
+            <label for="search_title" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="title.invalid && (title.dirty || title.touched)">                                
+                <input #title="ngModel" [(ngModel)]="menuGroupCode" [ngModelOptions]="{standalone: true}"   
+                    type="text" 
+                    id="search_title" 
+                    placeholder="메뉴그룹명"                 
+                    size="10"
+                    required 
+                    >
+                <span class="tooltip-content">
+                This field cannot be empty!
+                </span>
+            </label>          
+        </div>
+        <button class="btn btn-sm btn-secondary" (click)="getMenuList()">조회</button>      
+    </clr-dg-action-bar>
+  
+    <clr-dg-column [clrDgField]="'menuGroupCode'"   [style.width.px]="130">메뉴그룹코드</clr-dg-column>
+    <clr-dg-column [clrDgField]="'menuCode'"        [style.width.px]="130">메뉴코드</clr-dg-column>    
+    <clr-dg-column [clrDgField]="'menuName'"        [style.width.px]="130">메뉴명</clr-dg-column>
+    <clr-dg-column [clrDgField]="'parentMenuCode'"  [style.width.px]="130">상위메뉴코드</clr-dg-column>
+    <clr-dg-column [clrDgField]="'level'"           [style.width.px]="130">계층레벨</clr-dg-column>
+    <clr-dg-column [clrDgField]="'sequence'"        [style.width.px]="130">순서</clr-dg-column>
+    <clr-dg-column [clrDgField]="'program'">프로그램</clr-dg-column>
+    
+    <clr-dg-row *clrDgItems="let menu of menuList" [clrDgItem]="menu">
+        <clr-dg-cell>{{menu.menuGroupCode}}</clr-dg-cell>
+        <clr-dg-cell>{{menu.menuCode}}</clr-dg-cell>
+        <clr-dg-cell>{{menu.menuName}}</clr-dg-cell>
+        <clr-dg-cell>{{menu.parentMenuCode}}</clr-dg-cell>
+        <clr-dg-cell>{{menu.level}}</clr-dg-cell>        
+        <clr-dg-cell>{{menu.sequence}}</clr-dg-cell>
+        <clr-dg-cell>{{menu.program}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} menus
+        </clr-dg-pagination>              
+    </clr-dg-footer>      
+</clr-datagrid>

@@ -20,6 +20,7 @@ import { ProgramFormComponent } from '../common-forms/component/program-form.com
 import { ProgramGridComponent } from '../common-forms/component/program-grid.component';
 import { MenuGroupGridComponent } from '../common-forms/component/menu-group-grid.component';
 import { MenuTreeComponent } from './sidebar/menu-tree.component';
+import { MenuGridComponent } from '../common-forms/component/menu-grid.component';
 
 
 const layoutroutes: Routes = [
@@ -31,6 +32,7 @@ const layoutroutes: Routes = [
       {path: 'menuGroupForm', component: MenuGroupFormComponent},
       {path: 'menuGroupList', component: MenuGroupGridComponent},
       {path: 'menuForm',      component: MenuFormComponent},
+      {path: 'menuList',      component: MenuGridComponent},
       {path: 'menuTree',      component: MenuTreeComponent},
       {path: 'programForm',   component: ProgramFormComponent},
       {path: 'programList',   component: ProgramGridComponent},

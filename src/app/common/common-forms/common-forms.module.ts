@@ -13,6 +13,7 @@ import { ProgramFormComponent } from './component/program-form.component';
 import { ProgramSelectboxesComponent } from './component/program-selectboxes.component';
 import { ProgramGridComponent } from './component/program-grid.component';
 import { MenuGroupGridComponent } from './component/menu-group-grid.component';
+import { MenuGridComponent } from './component/menu-grid.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { MenuGroupGridComponent } from './component/menu-group-grid.component';
     MenuGroupFormComponent,
     MenuGroupGridComponent,
     MenuFormComponent,
+    MenuGridComponent,
     ProgramFormComponent,
     ProgramSelectboxesComponent,
     ProgramGridComponent
