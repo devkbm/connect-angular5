@@ -19,30 +19,31 @@ import { MenuFormComponent } from '../common-forms/component/menu-form.component
 import { ProgramFormComponent } from '../common-forms/component/program-form.component';
 import { ProgramGridComponent } from '../common-forms/component/program-grid.component';
 import { MenuGroupGridComponent } from '../common-forms/component/menu-group-grid.component';
-import { MenuTreeComponent } from '../common-forms/component/menu-tree.component';
+import { MenuTreeComponent } from './sidebar/menu-tree.component';
+
 
 const layoutroutes: Routes = [
   {
     path: 'home', component: CommonLayoutComponent,
     children: [
-      {path: 'test',        component: TestComponent},
-      {path: 'test2',       component: Test2Component},
+      {path: 'test',          component: TestComponent},
+      {path: 'test2',         component: Test2Component},
       {path: 'menuGroupForm', component: MenuGroupFormComponent},
       {path: 'menuGroupList', component: MenuGroupGridComponent},
-      {path: 'menuForm',    component: MenuFormComponent},
-      {path: 'menuTree',    component: MenuTreeComponent},
-      {path: 'programForm', component: ProgramFormComponent},
-      {path: 'programList', component: ProgramGridComponent},
-      {path: 'regform',     component: UserFormComponent},
-      {path: 'userList',    component: UserGridComponent},
-      {path: 'authList',    component: AuthorityGridComponent},
-      {path: 'authForm',    component: AuthorityFormComponent},
-      {path: 'board',       component: BoardComponent},
-      {path: 'boardForm',   component: BoardFormComponent},
-      {path: 'boardTree',   component: BoardTreeComponent},
-      {path: 'boardList',   component: BoardGridComponent},
-      {path: 'articleList', component: ArticleGridComponent},
-      {path: 'articleForm', component: ArticleFormComponent}
+      {path: 'menuForm',      component: MenuFormComponent},
+      {path: 'menuTree',      component: MenuTreeComponent},
+      {path: 'programForm',   component: ProgramFormComponent},
+      {path: 'programList',   component: ProgramGridComponent},
+      {path: 'regform',       component: UserFormComponent},
+      {path: 'userList',      component: UserGridComponent},
+      {path: 'authList',      component: AuthorityGridComponent},
+      {path: 'authForm',      component: AuthorityFormComponent},
+      {path: 'board',         component: BoardComponent},
+      {path: 'boardForm',     component: BoardFormComponent},
+      {path: 'boardTree',     component: BoardTreeComponent},
+      {path: 'boardList',     component: BoardGridComponent},
+      {path: 'articleList',   component: ArticleGridComponent},
+      {path: 'articleForm',   component: ArticleFormComponent}
     ]
   }
 ];

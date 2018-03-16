@@ -13,8 +13,6 @@ import { ProgramFormComponent } from './component/program-form.component';
 import { ProgramSelectboxesComponent } from './component/program-selectboxes.component';
 import { ProgramGridComponent } from './component/program-grid.component';
 import { MenuGroupGridComponent } from './component/menu-group-grid.component';
-import { MenuTreeNodeComponent } from './component/menu-tree-node.component';
-import { MenuTreeComponent } from './component/menu-tree.component';
 
 @NgModule({
   imports: [
@@ -31,9 +29,7 @@ import { MenuTreeComponent } from './component/menu-tree.component';
     MenuFormComponent,
     ProgramFormComponent,
     ProgramSelectboxesComponent,
-    ProgramGridComponent,
-    MenuTreeNodeComponent,
-    MenuTreeComponent
+    ProgramGridComponent
 ],
   exports: [
     CfInputComponent,

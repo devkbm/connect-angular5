@@ -9,6 +9,8 @@ import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MenuService } from '../common-service/menu.service';
 import { ProgramService } from '../common-service/program.service';
+import { MenuTreeComponent } from './sidebar/menu-tree.component';
+import { MenuTreeNodeComponent } from './sidebar/menu-tree-node.component';
 
 @NgModule({
   imports: [
@@ -16,8 +18,18 @@ import { ProgramService } from '../common-service/program.service';
     CommonLayoutRoutingModule,
     ClarityModule
   ],
-  declarations: [CommonLayoutComponent, HeaderComponent, MainComponent, SidebarComponent],
-  providers: [ MenuService, ProgramService ],
+  declarations: [
+    CommonLayoutComponent, 
+    HeaderComponent, 
+    MainComponent, 
+    SidebarComponent,
+    MenuTreeComponent,
+    MenuTreeNodeComponent
+  ],
+  providers: [ 
+    MenuService, 
+    ProgramService 
+  ],
   exports: [CommonLayoutComponent]
 })
 export class CommonLayoutModule { }

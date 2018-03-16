@@ -1,6 +1,6 @@
 <!--  -->
-<clr-tree-node [(clrSelected)]="item.selected">
-  <a  routerLink="item.url"
+<clr-tree-node><!-- [(clrSelected)]="item.selected">-->
+  <a  [routerLink]="item.url"      
       class="clr-treenode-link"
       routerLinkActive="active">
       {{item.menuName}} - {{item.url}}
