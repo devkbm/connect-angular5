@@ -47,7 +47,7 @@
       <a class="nav-link" href="#">Users</a>
     </li>
     <li class="nav-item" *ngFor="let menuGroup of menuGroupList">
-      <a class="nav-link">{{menuGroup.menuGroupName}}</a>
+      <a class="nav-link" (click)="getMenuList(menuGroup.menuGroupCode)">{{menuGroup.menuGroupName}}</a>
     </li>    
   </ul>
 </nav>
