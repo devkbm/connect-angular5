@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppAlarmService } from '../../common-service/app-alarm.service';
 import { MenuService } from '../../common-service/menu.service';
 import { MenuGroup } from '../../common-service/menu-group';
@@ -12,9 +12,13 @@ import { ResponseList } from '../../common-service/model/response-list';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title = 'Connect';
 
+  title = 'Connect';
   menuGroupList: MenuGroup[];
+
+  @Output()
+  menuChanged: EventEmitter<String> = new EventEmitter();
+
 
   constructor(private menuService: MenuService,
               private appAlarmService: AppAlarmService) { }
@@ -51,7 +55,9 @@ export class HeaderComponent implements OnInit {
   public getMenuList(menuGroupCode: string) {
     console.log(menuGroupCode);
 
-    this.menuService
+    this.menuChanged.emit(menuGroupCode);
+
+    /*this.menuService
       .getMenuHierarchy(menuGroupCode)
       .subscribe(
         (model: ResponseList<MenuHierarchy>) => {
@@ -67,7 +73,7 @@ export class HeaderComponent implements OnInit {
         () => {
           console.log('완료');
         }
-      );
+      );*/
 
   }
 

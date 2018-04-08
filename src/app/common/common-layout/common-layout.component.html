@@ -10,8 +10,8 @@
           </div>
       </clr-alert-item>            
   </clr-alert>
-  <app-header></app-header>
-  <app-main>
+  <app-header (menuChanged)="sendMen($event)"></app-header>
+  <app-main [menuGroupCode]="menuGroupCode">
     <ng-content></ng-content>  
   </app-main>
 </div>

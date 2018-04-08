@@ -9,11 +9,17 @@ import { AppAlarmService } from '../common-service/app-alarm.service';
 export class CommonLayoutComponent implements OnInit {
 
   message: string;
+  menuGroupCode: string;
 
   constructor(private data: AppAlarmService) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.message = message);
+  }
+
+  sendMen(mess) {
+    this.menuGroupCode = mess;
+    console.log(mess);
   }
 
 }
