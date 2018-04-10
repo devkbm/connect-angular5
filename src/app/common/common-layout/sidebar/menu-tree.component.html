@@ -1,6 +1,4 @@
 <!-- -->
-<button class="btn btn-primary" (click)="getMenu()">조회</button>
-
 <div *ngFor="let item of items; index as i">    
     <app-menu-tree-node
         [item]="item"    
@@ -8,9 +6,3 @@
     </app-menu-tree-node>     
 </div>
 {{items | json}} 
-<!--
-<app-menu-tree-node
-[item]="items[1]"    
-[selected]="items[1].selected">    
-</app-menu-tree-node>   
--->

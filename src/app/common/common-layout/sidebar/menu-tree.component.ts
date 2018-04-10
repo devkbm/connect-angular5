@@ -20,36 +20,10 @@ export class MenuTreeComponent implements OnInit, OnChanges {
   constructor(private menuService: MenuService,
               private appAlarmService: AppAlarmService) { }
 
-  ngOnInit() {
-    // this.items = new MenuHierarchy()[];
-    this.menuGroupCode = 'GROUP';
+  ngOnInit() {    
+    //this.menuGroupCode = 'GROUP';
     console.log('MenuTreeComponent init');
-  }
-
-  private getMenu() {
-    this.menuService
-      .getMenuHierarchy(this.menuGroupCode)
-      .subscribe(
-        (model: ResponseList<MenuHierarchy>) => {
-          console.log(model);
-          if ( model.total > 0 ) {
-            this.items = model.data;
-          } else {
-            this.items = null;
-          }
-        },
-        (err) => {
-          console.log(err);
-        },
-        () => {
-          console.log('완료');
-        }
-      );
-  }
-
-  private onValueChange(value) {
-    console.log(value);
-  }
+  }    
 
   /**
    * input 값 변경시 적용되는 이벤트
@@ -65,6 +39,8 @@ export class MenuTreeComponent implements OnInit, OnChanges {
           console.log(model);
           if ( model.total > 0 ) {
             this.items = model.data;
+          } else {
+            this.items = null;
           }
         },
         (err) => {

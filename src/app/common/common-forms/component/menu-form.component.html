@@ -1,7 +1,7 @@
 <form>
     {{menu | json}} 
     <section class="form-block">
-        <label>메뉴그룹 신규 등록</label>      
+        <label>메뉴 신규 등록</label>      
         <div class="form-group" >
             <label for="menu_group_code" class="required">메뉴그룹코드</label>
             <cf-input   [uniqueId]="'menu_group_code'"
@@ -36,11 +36,11 @@
             </cf-input>            
         </div>        
         <div class="form-group" >
-            <label for="p_menu_code">상위부서코드</label>
+            <label for="p_menu_code">상위메뉴코드</label>
             <cf-input   [uniqueId]="'p_menu_code'"
                         [(ngModel)]="menu.parentMenuCode" 
                         [ngModelOptions]="{standalone: true}" 
-                        [placeholderText]="'상위부서코드를 입력해주세요.'" 
+                        [placeholderText]="'상위메뉴코드를 입력해주세요.'" 
                         [tooltipText]="'필수 정보입니다.'"
                         (valueChanged)="onValueChange($event)">
             </cf-input>            
@@ -50,7 +50,7 @@
             <cf-input   [uniqueId]="'sequence'"
                         [(ngModel)]="menu.sequence" 
                         [ngModelOptions]="{standalone: true}" 
-                        [placeholderText]="'URL을 입력해주세요.'" 
+                        [placeholderText]="'순번을 입력해주세요.'" 
                         [tooltipText]="'필수 정보입니다.'"
                         (valueChanged)="onValueChange($event)"
                         [isRequired]=true>

@@ -23,7 +23,7 @@ export class MenuGridComponent implements OnInit {
   }
 
   getMenuList() {
-    console.log('aa');
+    
     this.menuService.getMenuList(this.menuGroupCode)
       .subscribe(
         (model: ResponseList<Menu>) => {

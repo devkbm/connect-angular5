@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MenuService } from '../../common-service/menu.service';
 import { AppAlarmService } from '../../common-service/app-alarm.service';
 import { MenuGroup } from '../../common-service/menu-group';
@@ -12,6 +12,9 @@ import { Menu } from '../../common-service/menu';
 })
 export class MenuFormComponent implements OnInit {
 
+  @Input()
+  menuGroupCode: string;
+
   menu: Menu;
 
   constructor(private menuService: MenuService,
@@ -19,6 +22,7 @@ export class MenuFormComponent implements OnInit {
 
   ngOnInit() {
     this.menu = new Menu();
+    this.menu.menuGroupCode = this.menuGroupCode;
     console.log('MenuFormComponent init');
   }
 
@@ -32,6 +36,7 @@ export class MenuFormComponent implements OnInit {
             this.menu = model.data;
           } else {
             this.menu = new Menu();
+            this.menu.menuGroupCode = this.menuGroupCode;
           }
         },
         (err) => {
