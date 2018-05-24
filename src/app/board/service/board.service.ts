@@ -17,7 +17,7 @@ export class BoardService extends DataService {
     constructor(http: HttpClient) {
         super('http://localhost:8090/grw', http);
     }
-    
+
     getBoardList(): Observable<ResponseList<Board>> {
         const url = `${this.API_URI}/boards`;
         return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
@@ -75,7 +75,7 @@ export class BoardService extends DataService {
     }
 
     saveArticle(article: Article): Observable<ResponseObject<Article>> {
-        const url = `${this.API_URI}/boards/articles/${article.pkArticle}`;
+        const url = `${this.API_URI}/boards/articles`;
 
         return this.http
             .post(url, article, {headers: this.getAuthorizedHttpHeaders()})

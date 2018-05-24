@@ -2,6 +2,7 @@
     {{article | json}}
     <section class="form-block">
         <label>게시판 등록</label>
+        <input type="text" name="fkBoard" [(ngModel)]="article.fkBoard">
         <input type="text" name="pkArticle" [(ngModel)]="article.pkArticle">
         <input type="hidden" name="ppkArticle" [(ngModel)]="article.ppkArticle">          
         
