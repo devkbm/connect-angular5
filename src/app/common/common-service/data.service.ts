@@ -32,4 +32,15 @@ export class DataService {
             .set('Content-Type', 'application/json')
             .set('x-auth-token', sessionStorage.getItem('token'));
     }
+
+    protected getAuthorizedMultiPartHeaders(): HttpHeaders {
+        let headers = new HttpHeaders()
+        //.set('Content-Type', 'multipart/form-data')
+        .set('Accept', 'application/json')
+        .set('x-auth-token', sessionStorage.getItem('token'));
+        
+        headers.delete('Content-Type');
+
+        return  headers;
+    }
 }

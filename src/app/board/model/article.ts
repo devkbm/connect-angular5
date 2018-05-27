@@ -13,4 +13,5 @@ export class Article {
     seq: number;
     depth: number;
     articleChecks: ArticleCheck[];
+    file: File;
 }

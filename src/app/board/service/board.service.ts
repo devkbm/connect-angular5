@@ -77,8 +77,16 @@ export class BoardService extends DataService {
     saveArticle(article: Article): Observable<ResponseObject<Article>> {
         const url = `${this.API_URI}/boards/articles`;
 
+        let formData = new FormData();
+
+        formData.append('pkArticle', article.pkArticle.toString());
+        formData.append('file', article.file, article.file.name);
+
+        console.log(formData);
+
+
         return this.http
-            .post(url, article, {headers: this.getAuthorizedHttpHeaders()})
+            .post(url, formData, {headers: this.getAuthorizedMultiPartHeaders()})
             .map(this.responseMap)
             .catch((err) => Observable.throw(err));
     }

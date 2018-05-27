@@ -21,6 +21,7 @@
                 </span>
             </label>          
         </div>        
+        <input type="file" accept="image/*" (change)="onFileChange(fileInput.files)" #fileInput>
         <div class="form-group">
             <label for="contents">내용</label>            
             <textarea #contents="ngModel" [(ngModel)]="article.contents" [ngModelOptions]="{standalone: true}"
@@ -33,6 +34,6 @@
         </div>              
         <button class="btn btn-primary" (click)="getArticle()">조회</button>
         <button class="btn btn-primary" (click)="saveBoard(f)">등록</button>
-        <button class="btn btn-primary" (click)="deleteBoard()">삭제</button>        
+        <!--<button class="btn btn-primary" (click)="deleteBoard()">삭제</button>-->
   </section>
 </form>
