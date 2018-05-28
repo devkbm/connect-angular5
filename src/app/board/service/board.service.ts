@@ -79,11 +79,20 @@ export class BoardService extends DataService {
 
         let formData = new FormData();
 
-        formData.append('pkArticle', article.pkArticle.toString());
-        formData.append('file', article.file, article.file.name);
+        formData.append('pkArticle',    article.pkArticle.toString());
+        formData.append('fkBoard',      article.fkBoard.toString());
+        formData.append('ppkArticle',   article.ppkArticle.toString());
+        formData.append('title',        article.title);
+        formData.append('contents',     article.contents);
+        formData.append('pwd',          article.pwd);
+        formData.append('hitCnt',       article.hitCnt);
+        formData.append('fromdDt',      article.fromdDt);
+        formData.append('toDt',         article.toDt);
+        formData.append('seq',          article.seq.toString());
+        formData.append('depth',        article.depth.toString());
+        formData.append('file', article.file, article.file.name);        
 
         console.log(formData);
-
 
         return this.http
             .post(url, formData, {headers: this.getAuthorizedMultiPartHeaders()})
