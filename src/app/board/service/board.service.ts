@@ -10,11 +10,12 @@ import { ResponseList } from '../../common/common-service/model/response-list';
 import { Board } from '../model/board';
 import { Article } from '../model/article';
 import { HttpHeaders } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable()
 export class BoardService extends DataService {
 
-    constructor(http: HttpClient) {
+    constructor(http: HttpClient, private sanitizer: DomSanitizer) {
         super('http://localhost:8090/grw', http);
     }
 
@@ -90,7 +91,7 @@ export class BoardService extends DataService {
         formData.append('toDt',         article.toDt);
         formData.append('seq',          article.seq.toString());
         formData.append('depth',        article.depth.toString());
-        formData.append('file', article.file, article.file.name);        
+        formData.append('file',         article.file, article.file.name);
 
         console.log(formData);
 
@@ -98,6 +99,38 @@ export class BoardService extends DataService {
             .post(url, formData, {headers: this.getAuthorizedMultiPartHeaders()})
             .map(this.responseMap)
             .catch((err) => Observable.throw(err));
+    }
+
+    downloadFile(fileId: string) {
+        const url = `http://localhost:8090/file/${fileId}`;
+
+        this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
+        .subscribe(
+            (model: ResponseObject<any>) => {
+                console.log(model);
+
+                const blob = new Blob([model.data], { type: 'application/octet-stream' });
+
+                this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+              },
+              (err) => {
+                console.log(err);
+              },
+              () => {
+                console.log('완료');
+              }
+            );
+
+            /**
+             // https://stackblitz.com/edit/angular-blob-file-download?file=app%2Fapp.component.ts
+             constructor(private sanitizer: DomSanitizer) {  }
+                ngOnInit() {
+                    const data = 'some text';
+                    const blob = new Blob([data], { type: 'application/octet-stream' });
+
+                    this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+                }
+             */
     }
 
 }

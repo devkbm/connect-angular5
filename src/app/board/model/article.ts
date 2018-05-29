@@ -14,4 +14,5 @@ export class Article {
     depth: number;
     articleChecks: ArticleCheck[];
     file: File;
+    fileId: string;
 }
