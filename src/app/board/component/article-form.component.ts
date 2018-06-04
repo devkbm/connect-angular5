@@ -79,18 +79,7 @@ export class ArticleFormComponent implements OnInit {
   }
 
   fileDown() {
-    this.boardService.downloadFile(this.article.fileId);
-    /*.subscribe(
-      (model: ResponseObject<any>) => {
-        console.log(model);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        console.log('완료');
-      }
-    );*/
+    this.boardService.downloadFile(this.article.attachFile[0].fileId, this.article.attachFile[0].fileName);
   }
 
 }

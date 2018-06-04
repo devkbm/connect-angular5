@@ -7,15 +7,15 @@ import { DataService } from '../../common/common-service/data.service';
 import { ResponseObject } from '../../common/common-service/model/response-object';
 import { ResponseList } from '../../common/common-service/model/response-list';
 
+import * as FileSaver from 'file-saver';
+
 import { Board } from '../model/board';
 import { Article } from '../model/article';
-import { HttpHeaders } from '@angular/common/http';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable()
 export class BoardService extends DataService {
 
-    constructor(http: HttpClient, private sanitizer: DomSanitizer) {
+    constructor(http: HttpClient) {
         super('http://localhost:8090/grw', http);
     }
 
@@ -80,18 +80,23 @@ export class BoardService extends DataService {
 
         let formData = new FormData();
 
-        formData.append('pkArticle',    article.pkArticle.toString());
-        formData.append('fkBoard',      article.fkBoard.toString());
-        formData.append('ppkArticle',   article.ppkArticle.toString());
+        if (article.pkArticle !== undefined ) {
+            formData.append('pkArticle',    article.pkArticle.toString());
+        }
+
+        formData.append('fkBoard',      String(article.fkBoard));
+        //formData.append('ppkArticle',   article.ppkArticle.toString());
         formData.append('title',        article.title);
         formData.append('contents',     article.contents);
         formData.append('pwd',          article.pwd);
         formData.append('hitCnt',       article.hitCnt);
         formData.append('fromdDt',      article.fromdDt);
         formData.append('toDt',         article.toDt);
-        formData.append('seq',          article.seq.toString());
-        formData.append('depth',        article.depth.toString());
-        formData.append('file',         article.file, article.file.name);
+        //formData.append('seq',          String(article.seq));
+        //formData.append('depth',        String(article.depth));
+        if ( article.file !== undefined ) {
+            formData.append('file',         article.file, article.file.name);
+        }
 
         console.log(formData);
 
@@ -101,17 +106,16 @@ export class BoardService extends DataService {
             .catch((err) => Observable.throw(err));
     }
 
-    downloadFile(fileId: string) {
+    downloadFile(fileId: string, fileName: string) {
         const url = `http://localhost:8090/file/${fileId}`;
 
-        this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
+        this.http.get(url, {headers: this.getAuthorizedMultiPartHeaders(), responseType: 'blob'})
         .subscribe(
-            (model: ResponseObject<any>) => {
-                console.log(model);
+            (model: Blob) => {
 
-                const blob = new Blob([model.data], { type: 'application/octet-stream' });
+                const blob = new Blob([model], { type: 'application/octet-stream' });
 
-                this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
+                FileSaver.saveAs(blob, fileName);
               },
               (err) => {
                 console.log(err);
@@ -120,17 +124,7 @@ export class BoardService extends DataService {
                 console.log('완료');
               }
             );
-
-            /**
-             // https://stackblitz.com/edit/angular-blob-file-download?file=app%2Fapp.component.ts
-             constructor(private sanitizer: DomSanitizer) {  }
-                ngOnInit() {
-                    const data = 'some text';
-                    const blob = new Blob([data], { type: 'application/octet-stream' });
-
-                    this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-                }
-             */
     }
+
 
 }

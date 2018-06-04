@@ -4,8 +4,10 @@
         <label>게시판 등록</label>
         <input type="text" name="fkBoard" [(ngModel)]="article.fkBoard">
         <input type="text" name="pkArticle" [(ngModel)]="article.pkArticle">
-        <input type="hidden" name="ppkArticle" [(ngModel)]="article.ppkArticle">          
-        
+        <input type="hidden" name="ppkArticle" [(ngModel)]="article.ppkArticle">         
+        <div *ngFor="let attach of article.attachFile">
+            <a [href]="'http://localhost:8090/file/' + attach.fileId" target="_blank" >{{attach.fileName}}</a>
+        </div> 
         <div class="form-group">            
             <label for="title" class="required" [style.width.px]="100">제목</label>
             <label for="title" aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="title.invalid && (title.dirty || title.touched)">

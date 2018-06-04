@@ -38,9 +38,13 @@ export class DataService {
         //.set('Content-Type', 'multipart/form-data')
         .set('Accept', 'application/json')
         .set('x-auth-token', sessionStorage.getItem('token'));
-        
+
         headers.delete('Content-Type');
 
         return  headers;
+    }
+
+    protected getAuthorizedHeaders(): Headers {
+        return new Headers({'x-auth-token': sessionStorage.getItem('token')});
     }
 }
