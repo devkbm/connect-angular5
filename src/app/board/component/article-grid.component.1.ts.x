@@ -19,13 +19,6 @@ export class ArticleGridComponent implements OnInit {
 
   articleList: Article[];
 
-  columnDefs = [
-    {headerName: '키값',       field: 'pkArticle',  hide: true},
-    {headerName: '게시글',     field: 'title'},
-    {headerName: '시작일자',   field: 'fromDt',     width: 100},
-    {headerName: '종료일자',   field: 'toDt',       width: 100}
-  ];
-
   constructor(private boardService: BoardService) { }
 
   ngOnInit() {

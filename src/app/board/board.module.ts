@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ClarityModule } from  "@clr/angular";
+import { ClarityModule } from '@clr/angular';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { BoardService } from './service/board.service';
 
@@ -17,7 +18,8 @@ import { ArticleFormComponent } from './component/article-form.component';
   imports: [
     CommonModule,
     FormsModule,
-    ClarityModule
+    ClarityModule,
+    AgGridModule.withComponents([])
   ],
   declarations: [
     BoardFormComponent,

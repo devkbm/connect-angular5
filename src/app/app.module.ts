@@ -8,6 +8,7 @@ import { BoardModule } from './board/board.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppComponent } from './app.component';
     TestModule,
     UserModule,
     BoardModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]
