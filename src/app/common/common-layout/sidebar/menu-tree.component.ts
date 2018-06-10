@@ -20,10 +20,10 @@ export class MenuTreeComponent implements OnInit, OnChanges {
   constructor(private menuService: MenuService,
               private appAlarmService: AppAlarmService) { }
 
-  ngOnInit() {    
-    //this.menuGroupCode = 'GROUP';
+  ngOnInit() {
+    // this.menuGroupCode = 'GROUP';
     console.log('MenuTreeComponent init');
-  }    
+  }
 
   /**
    * input 값 변경시 적용되는 이벤트

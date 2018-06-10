@@ -11,6 +11,7 @@ import * as FileSaver from 'file-saver';
 
 import { Board } from '../model/board';
 import { Article } from '../model/article';
+import { BoardHierarchy } from '../model/board-hierarchy';
 
 @Injectable()
 export class BoardService extends DataService {
@@ -28,6 +29,14 @@ export class BoardService extends DataService {
 
     getBoard(id: number): Observable<ResponseObject<Board>> {
         const url = `${this.API_URI}/boards/${id}`;
+        console.log(this.getHttpHeaders());
+        return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
+            .map(this.responseMap)
+            .catch((err) => Observable.throw(err));
+    }
+
+    getBoardHierarchy(): Observable<ResponseList<BoardHierarchy>> {
+        const url = `${this.API_URI}/boardHierarchy`;
         console.log(this.getHttpHeaders());
         return this.http.get(url, {headers: this.getAuthorizedHttpHeaders()})
             .map(this.responseMap)
@@ -78,22 +87,22 @@ export class BoardService extends DataService {
     saveArticle(article: Article): Observable<ResponseObject<Article>> {
         const url = `${this.API_URI}/boards/articles`;
 
-        let formData = new FormData();
+        const formData = new FormData();
 
         if (article.pkArticle !== undefined ) {
             formData.append('pkArticle',    article.pkArticle.toString());
         }
 
         formData.append('fkBoard',      String(article.fkBoard));
-        //formData.append('ppkArticle',   article.ppkArticle.toString());
+        // formData.append('ppkArticle',   article.ppkArticle.toString());
         formData.append('title',        article.title);
         formData.append('contents',     article.contents);
         formData.append('pwd',          article.pwd);
         formData.append('hitCnt',       article.hitCnt);
         formData.append('fromdDt',      article.fromdDt);
         formData.append('toDt',         article.toDt);
-        //formData.append('seq',          String(article.seq));
-        //formData.append('depth',        String(article.depth));
+        // formData.append('seq',          String(article.seq));
+        // formData.append('depth',        String(article.depth));
         if ( article.file !== undefined ) {
             formData.append('file',         article.file, article.file.name);
         }

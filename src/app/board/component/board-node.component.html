@@ -1,0 +1,14 @@
+<!--  -->
+<clr-tree-node> <!-- [(clrSelected)]="item.selected">  -->
+  <button class="clr-treenode-link"
+          [class.active] = "item.active"
+          (click)="itemClick()">
+          {{item.boardName}}
+  </button>
+  <ng-template 
+    [clrIfExpanded]="item.expanded" 
+    *ngFor="let child of item.children">
+      <app-board-node [item]="child">
+      </app-board-node>
+  </ng-template>
+</clr-tree-node>

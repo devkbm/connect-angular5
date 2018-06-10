@@ -19,16 +19,16 @@ import { MenuTreeNodeComponent } from './sidebar/menu-tree-node.component';
     ClarityModule
   ],
   declarations: [
-    CommonLayoutComponent, 
-    HeaderComponent, 
-    MainComponent, 
+    CommonLayoutComponent,
+    HeaderComponent,
+    MainComponent,
     SidebarComponent,
     MenuTreeComponent,
     MenuTreeNodeComponent
   ],
-  providers: [ 
-    MenuService, 
-    ProgramService 
+  providers: [
+    MenuService,
+    ProgramService
   ],
   exports: [CommonLayoutComponent]
 })

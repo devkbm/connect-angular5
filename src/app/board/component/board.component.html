@@ -1,2 +1,10 @@
-<app-board-grid (onSelectedItem)="selectArticle(article,$event)"></app-board-grid>
-<app-article-grid [fkBoardInput]="fkBoard" #article></app-article-grid>
+<app-board-tree 
+    style="width: 50%; height: 50%"
+    (itemClicked)="selectArticle(article,$event)">
+
+</app-board-tree>
+
+<app-article-grid 
+    [fkBoardInput]="fkBoard" #article
+    style="width: 100%; height: 50%">
+</app-article-grid>

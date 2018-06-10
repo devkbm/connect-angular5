@@ -7,12 +7,13 @@ import { AgGridModule } from 'ag-grid-angular';
 import { BoardService } from './service/board.service';
 
 import { BoardFormComponent } from './component/board-form.component';
-import { BoardTreeComponent } from './component/board-tree.component';
 import { BoardGridComponent } from './component/board-grid.component';
-import { ArticleGridComponent } from './component/article-grid.component';
-import { BoardComponent } from './component/board.component';
-import { ArticleFormComponent } from './component/article-form.component';
 
+import { ArticleGridComponent } from './component/article-grid.component';
+import { ArticleFormComponent } from './component/article-form.component';
+import { BoardComponent } from './component/board.component';
+import { BoardTreeComponent } from './component/board-tree.component';
+import { BoardNodeComponent } from './component/board-node.component';
 
 @NgModule({
   imports: [
@@ -22,9 +23,10 @@ import { ArticleFormComponent } from './component/article-form.component';
     AgGridModule.withComponents([])
   ],
   declarations: [
+    BoardTreeComponent,
+    BoardNodeComponent,
     BoardFormComponent,
     BoardGridComponent,
-    BoardTreeComponent,
     ArticleGridComponent,
     ArticleFormComponent,
     BoardComponent
